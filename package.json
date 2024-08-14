@@ -1,0 +1,16 @@
+{
+  "name": "proyecto6",
+  "version": "1.0.0",
+  "description": "proyecto base Node",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "Cristian",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.3"
+  }
+}
