@@ -1,9 +1,13 @@
 const express = require("express");
 const Router = require("./routes/index");
 const conectarBD = require("./models/db.js");
+var cors = require('cors')
 
 // arrancar express
 const app = express();
+
+// habilitando cors
+app.use(cors())
 
 // conectando con MongoDB
 conectarBD()
