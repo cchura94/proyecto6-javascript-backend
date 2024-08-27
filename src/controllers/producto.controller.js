@@ -24,16 +24,41 @@ async function guardarProducto(req, res){
     }
 }
 
-function mostrarProducto(req, res){
-    return res.json({mensaje: "Mostrando Producto"});
+async function mostrarProducto(req, res){
+
+    try {
+        const {id} = req.params;
+        const producto = await Producto.findById(id)
+    } catch (error) {
+        
+        return res.json({mensaje: "Error al mostrar Producto"});
+    }
+
 }
 
-function modificarProducto(req, res){
-    return res.json({mensaje: "Modificar Producto"});
+async function modificarProducto(req, res){
+    try {
+        const {id} = req.params;
+        const body = req.body
+        const producto = await Producto.findByIdAndUpdate(id, body, {new: true})
+        return res.json({mensaje: "Eliminar actualizado"});
+
+    } catch (error) {
+        
+        return res.json({mensaje: "Error al mostrar Producto"});
+    }
 }
 
-function eliminarProducto(req, res){
-    return res.json({mensaje: "Eliminar Producto"});
+async function eliminarProducto(req, res){
+    try {
+        const {id} = req.params;
+        const producto = await Producto.findByIdAndDelete(id)
+        return res.json({mensaje: "Producto eliminado"});
+
+    } catch (error) {
+        
+        return res.json({mensaje: "Error al mostrar Producto"});
+    }
 }
 
 module.exports = {
